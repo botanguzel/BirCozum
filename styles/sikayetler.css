@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+}
+/* Add a gray background color with some padding */
+body {
+    font-family: Arial;
+    background: #f1f1f1;
+}
+
+/* Header/Blog Title */
+.header {
+    margin-top: 50px;
+    padding: 30px;
+    font-size: 40px;
+    text-align: center;
+    background: white;
+}
+.rowMe:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {   
+    float: left;
+    width: 50%;
+}
+
+/* Right column */
+.rightcolumn {
+    float: left;
+    width: 50%;
+    padding-left: 20px;
+    position: sticky;
+    top: 180px;
+}
+
+/* Add a card effect for articles */
+.card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.shadow {
+    box-shadow: 10px 10px 10px 0px rgb(142 149 155)!important;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {   
+        width: 100%;
+        padding: 0;
+    }
+}
+
+.comment-author {
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
+.leftColIn {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.entry_type {
+    margin-left: 30px;
+    padding-right: 25px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.button {
+    width: 250px;
+    height: 60px;
+    display: none;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 10px;
+    padding: 0px 15px;
+    background-color: rgb(66, 66, 66);
+    border-radius: 10px;
+    color: white;
+    border: none;
+    transition-duration: .2s;
+    position: fixed;
+    top: 100px;
+    right: 40px;
+  }
+  
+  .show-button {
+    display: flex; /* Show the button when the class is applied */
+  }

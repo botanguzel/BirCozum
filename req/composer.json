@@ -1,0 +1,15 @@
+{
+    "name": "bircozum/bircozum",
+    "description": "bircozum-user-auth-token-gen",
+    "type": "library",
+    "authors": [
+        {
+            "name": "botanguzel",
+            "email": "botanguzel@hotmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "firebase/php-jwt": "^6.7"
+    }
+}

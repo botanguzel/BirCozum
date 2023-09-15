@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Kayıt Ol - BirCozum</title>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+		<link href="../styles/login.css" rel="stylesheet" type="text/css">
+		<script href="../scripts/login.js"></script>
+	</head>
+	<body>
+		<script src="https://accounts.google.com/gsi/client" async defer></script>
+		<div class="login">
+			<h1>Kayıt Ol</h1>
+			<form action="../php/register.php" method="POST">
+
+				<label for="username"> <i class="fas fa-user"></i> </label>
+				<input type="text" name="username" placeholder="Kullanıcı Adı" id="username" required pattern="[a-zA-Z].{4,15}" title="Lütfen 5-15 harf sınırlarına uyunuz">
+				
+				<label for="fname"> <i class="fas fa-user"></i> </label>
+				<input type="text" name="firstName" placeholder="İsim" id="fname" required pattern="[a-zA-Z].{1,15}" title="Lütfen 2-15 karakter sınırlarına uyunuz">
+
+				<label for="lname"> <i class="fas fa-user"></i> </label>
+				<input type="text" name="lastName" placeholder="Soyisim" id="lname" required pattern="[a-zA-Z].{1,15}" title="Lütfen 2-40 karakter sınırlarına uyunuz">
+
+				<label for="password"> <i class="fas fa-lock"></i> </label>
+				<input type="password" name="password" placeholder="Şifre" id="password" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[.,!\#$%&*^-_=+])[a-zA-Z0-9.,!#$%&*^-_=+]{8,25}$"
+					title="En az 1 büyük harf, 1 küçük harf, 1 rakam ve 1 sembol (.!@#$%^&*_=+-) içermelidir ve 8-25 karakter sınırında olmalıdır!">
+				
+				<label for="password"> <i class="fas fa-lock"></i> </label>
+				<input type="password" name="confirm_password" placeholder="Şifreyi tekrar girin" id="confirm_password" required>
+				
+				<label for="email"> <i class="fas fa-envelope"></i> </label>
+				<input type="text" name="email" placeholder="E-mail" id="email"  required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+					title="Must be in this format: email@email.co">
+
+				<input type="submit" value="Kayıt Ol">
+				<div id="g_id_onload"
+					data-client_id="420101599386-73tan2h8tqm7lkpuimvv591ogikkbu7a.apps.googleusercontent.com"
+					data-context="signup"
+					data-ux_mode="popup"
+					data-callback="onClickHandler"
+					data-auto_prompt="false">
+				</div>
+
+				<div class="g_id_signin"
+					data-type="standard"
+					data-shape="rectangular"
+					data-theme="filled_blue"
+					data-text="continue_with"
+					data-size="large"
+					data-logo_alignment="left"
+					data-width="100">
+				</div>
+				<script>
+					  function decodeJwtResponse(credential) {
+						const jwt = credential.split('.')[1];
+						const decodedJwt = atob(jwt);
+						const responsePayload = JSON.parse(decodedJwt);
+						return responsePayload;
+					}
+					function onClickHandler(response){
+						// decodeJwtResponse() is a custom function defined by you
+						// to decode the credential response.
+						const responsePayload = decodeJwtResponse(response.credential);
+
+						console.log("ID: " + responsePayload.sub);
+						console.log('Full Name: ' + responsePayload.name);
+						console.log('Given Name: ' + responsePayload.given_name);
+						console.log('Family Name: ' + responsePayload.family_name);
+						console.log("Image URL: " + responsePayload.picture);
+						console.log("Email: " + responsePayload.email);
+					}
+				</script>
+			</form>
+		</div>
+		<button id="notification" class="button">
+			<svg viewBox="0 0 448 512" class="bell"><path d="M224 0c-17.7 0-32 14.3-32 32V49.9C119.5 61.4 64 124.2 64 200v33.4c0 45.4-15.5 89.5-43.8 124.9L5.3 377c-5.8 7.2-6.9 17.1-2.9 25.4S14.8 416 24 416H424c9.2 0 17.6-5.3 21.6-13.6s2.9-18.2-2.9-25.4l-14.9-18.6C399.5 322.9 384 278.8 384 233.4V200c0-75.8-55.5-138.6-128-150.1V32c0-17.7-14.3-32-32-32zm0 96h8c57.4 0 104 46.6 104 104v33.4c0 47.9 13.9 94.6 39.7 134.6H72.3C98.1 328 112 281.3 112 233.4V200c0-57.4 46.6-104 104-104h8zm64 352H224 160c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7s18.7-28.3 18.7-45.3z"></path></svg>
+			Notifications
+		</button>
+		<div id="formValues"></div>
+	</body>
+</html>

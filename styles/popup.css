@@ -1,0 +1,42 @@
+/* Popup container */
+.popup {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+}
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+	visibility: hidden;
+	width: 200px;
+	background-color: #555;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 8px 0;
+	position: absolute;
+	z-index: 1;
+	bottom: 30px;
+	left: 10px;
+	margin-left: 320px;
+	}
+/* Popup container */
+.popup-map {
+	position: relative;
+	display: inline-block;
+}
+
+/* The actual popup (appears on top) */
+.popup-map .popuptext {
+	visibility: hidden;
+	width: 200px;
+	background-color: #555;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 8px 0;
+	position: absolute;
+	z-index: 1;
+	bottom: -30px;
+	margin-left: -60vh;
+}

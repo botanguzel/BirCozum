@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Google Sign-In Example</title>
+
+
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script>
+    function handleSignIn(googleUser) {
+      var profile = googleUser.getBasicProfile();
+      var name = profile.getName();
+      var email = profile.getEmail();
+      
+      console.log('Name: ' + name);
+      console.log('Email: ' + email);
+    }
+  </script>
+</head>
+<body>
+    <div id="g_id_onload"
+    data-client_id="420101599386-73tan2h8tqm7lkpuimvv591ogikkbu7a.apps.googleusercontent.com"
+    data-context="signup"
+    data-ux_mode="popup"
+    data-callback="onClickHandler"
+    data-nonce=""
+    data-auto_prompt="false">
+</div>
+
+<div class="g_id_signin"
+    data-type="standard"
+    data-shape="rectangular"
+    data-theme="outline"
+    data-text="signin_with"
+    data-size="large"
+    data-logo_alignment="left">
+</div>
+<script src="../scripts/login.js"></script>
+  <script>
+        function decodeJwtResponse(credential) {
+      const jwt = credential.split('.')[1];
+      const decodedJwt = atob(jwt);
+      const responsePayload = JSON.parse(decodedJwt);
+      return responsePayload;
+    }
+    function onClickHandler(response){
+    // decodeJwtResponse() is a custom function defined by you
+     // to decode the credential response.
+     const responsePayload = decodeJwtResponse(response.credential);
+     handleLoginData(responsePayload);
+
+  }
+  </script>
+
+</body>
+</html>
