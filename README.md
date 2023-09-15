@@ -1,4 +1,4 @@
-# BirCozum
+# <a href="https://www.bircozum.com" target="_blank">BirCozum</a>
 ## Introduction
 
 This website has been built with HTML, PHP, JS, MySQL and Python for automation of certain functions. The point of this project is to create an online platform where residents of a small town (Seyrek) in Turkey can easily communicate with each other about the problems in their neighbourhood. The website uses Google MAPs API to show the position of the current complaints and suggestions.
